@@ -3,12 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Body from './components/Body'
 
 function App() {
 
   return (
     <>
-    <h5>Hello my name is Rohit Mourya.</h5>
+     <Body/>
     </>
   )
 }
