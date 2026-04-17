@@ -33,9 +33,9 @@ const Header = () => {
     }, [])
     return (
         <>
-            <div className='absolute px-4 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between items-center'><img src={logo} alt="Logo" className='w-45' />
+            <div className='absolute px-4 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between items-center'><img src={logo} alt="Logo" className='w-45' />
                 {user && <div className='flex gap-2'><img src={user.photoURL} alt="user logo" className='h-12 w-12' />
-                    <div className='mt-1'><button className='bg-red-700 p-2 rounded text-white font-bold' onClick={handleSignOut}>Sign Out</button></div></div>}
+                    <div className='mt-1'><button className='bg-red-700 p-2 rounded text-white font-bold mr-2' onClick={handleSignOut}>Sign Out</button></div></div>}
             </div>
 
         </>

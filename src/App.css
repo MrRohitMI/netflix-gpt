@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+/* ===== Scrollbar Hidden by Default ===== */
+.scrollbar-hover::-webkit-scrollbar {
+  height: 0px;
+}
+
+/* ===== Show Scrollbar on Hover ===== */
+.scrollbar-hover:hover::-webkit-scrollbar {
+  height: 6px;
+}
+
+/* ===== Track (Background) ===== */
+.scrollbar-hover::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* ===== Thumb (Scroll) ===== */
+.scrollbar-hover::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* ===== Thumb Hover Effect ===== */
+.scrollbar-hover::-webkit-scrollbar-thumb:hover {
+  background: #ff4d4d;
+}
+
+/* ===== Firefox Support ===== */
+.scrollbar-hover {
+  scrollbar-width: none;
+}
+
+.scrollbar-hover:hover {
+  scrollbar-width: thin;
+  scrollbar-color: red black;
+}
