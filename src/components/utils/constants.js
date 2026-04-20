@@ -7,3 +7,5 @@ export const API_OPTIONS = {
 };
 
 export const BACKDROP_IMG = "https://image.tmdb.org/t/p/w500";
+
+export const SUPPORTED_LANG = [{ identifier: "en", lang: "English" }, { identifier: "hi", lang: "Hindi" }, { identifier: "sp", lang: "Spanish" },]
