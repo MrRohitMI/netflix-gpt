@@ -47,15 +47,16 @@ const Header = () => {
   }, []);
   return (
     <>
-      <div className="absolute px-4 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between items-center">
-        <img src={logo} alt="Logo" className="w-45" />
+      <div
+        className={`absolute px-4 py-2 z-10 w-full md:flex justify-between 
+          items-center ${showGptSearch || !user ? "bg-gradient-to-b from-black" : "bg-black"}`}
+      >
+        <img src={logo} alt="Logo" className="w-45 m-auto md:ml-0" />
         {user && (
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-between md:justify-start">
             {showGptSearch && (
               <div>
                 <select
-                  name=""
-                  id=""
                   className="bg-white text-black p-2 rounded mt-1"
                   onChange={handleLanguage}
                 >
@@ -75,7 +76,11 @@ const Header = () => {
                 {!showGptSearch ? "Search GPT" : "Home Page"}
               </button>
             </div>
-            <img src={user.photoURL} alt="user logo" className="h-12 w-12" />
+            <img
+              src={user.photoURL}
+              alt="user logo"
+              className="h-12 w-12 hidden md:block"
+            />
             <div className="mt-1">
               <button
                 className="bg-red-700 p-2 rounded text-white font-bold mr-2"
