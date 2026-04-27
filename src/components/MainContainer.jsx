@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
-// import Shimmer from "./Shimmer";
 import NetflixError from "./NetflixError";
 import NetflixShimmer from "./NetflixShimmer";
 
