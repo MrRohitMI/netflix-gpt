@@ -1,33 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const movieSlice = createSlice({
-    name: "movie",
-    initialState: {
-        nowPlayingMovies: null,
-        popularMovies: null,
-        upcomingMovies: null,
-        topRatedMovies: null,
-        trailerVideo: null
+  name: "movie",
+  initialState: {
+    nowPlayingMovies: [],
+    popularMovies: [],
+    upcomingMovies: [],
+    topRatedMovies: [],
+    trailerVideo: null,
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    addNowPlayingMovies: (state, action) => {
+      state.nowPlayingMovies = action.payload;
     },
-    reducers: {
-        addNowPlayingMovies: (state, action) => {
-            state.nowPlayingMovies = action.payload;
-        },
-        addPopularMovies: (state, action) => {
-            state.popularMovies = action.payload;
-        },
-        addUpcomingMovies: (state, action) => {
-            state.upcomingMovies = action.payload;
-        },
-        addTopRatedMovies: (state, action) => {
-            state.topRatedMovies = action.payload;
-        },
-        addTrailerVideo: (state,action) => {
-            state.trailerVideo = action.payload;
-        }
-    }
-
-})
-export const { addNowPlayingMovies, addTrailerVideo ,addPopularMovies, addUpcomingMovies, addTopRatedMovies} = movieSlice.actions;
+    addPopularMovies: (state, action) => {
+      state.popularMovies = action.payload;
+    },
+    addUpcomingMovies: (state, action) => {
+      state.upcomingMovies = action.payload;
+    },
+    addTopRatedMovies: (state, action) => {
+      state.topRatedMovies = action.payload;
+    },
+    addTrailerVideo: (state, action) => {
+      state.trailerVideo = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
+});
+export const {
+  addNowPlayingMovies,
+  addTrailerVideo,
+  addPopularMovies,
+  addUpcomingMovies,
+  addTopRatedMovies,
+  setLoading,
+  setError,
+} = movieSlice.actions;
 
 export default movieSlice.reducer;

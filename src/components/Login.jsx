@@ -11,9 +11,11 @@ import { auth } from "./utils/firebase";
 import userLogo from "../assets/user_profile_logo.png";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
+import Spinner from "./Spinner";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -22,6 +24,7 @@ const Login = () => {
     setIsSignInForm((prev) => !prev);
   };
   const handleValidateForm = () => {
+    setLoading(true);
     const message = validateData(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message) return;
@@ -56,6 +59,9 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     } else {
       signInWithEmailAndPassword(
@@ -64,12 +70,17 @@ const Login = () => {
         password.current.value,
       )
         .then((userCredential) => {
+          console.log(loading);
           const user = userCredential.user;
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
+        })
+        .finally(() => {
+          setLoading(false);
+          console.log(loading);
         });
     }
   };
@@ -120,9 +131,19 @@ const Login = () => {
         <button
           onClick={handleValidateForm}
           type="submit"
+          disabled={loading}
           className="p-4 mt-2 bg-red-700 w-full rounded-lg text-white font-bold text-lg"
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {loading ? (
+            <div className="flex justify-center gap-2 items-center">
+              <Spinner />
+              {isSignInForm ? "Signing in..." : "Signing up..."}
+            </div>
+          ) : isSignInForm ? (
+            "Sign In"
+          ) : (
+            "Sign Up"
+          )}
         </button>
         <p
           onClick={toggleSignInForm}
