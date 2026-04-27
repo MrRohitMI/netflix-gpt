@@ -30,17 +30,16 @@ const GptSearchBar = () => {
     }
 
     const gptMovies = response.output_text.split(", ");
-    // const gptMovies = ex.split(", ");
     const gptMoviesData = gptMovies.map((movie)=> searchMovie(movie))
     const tmdbMovies = await Promise.all(gptMoviesData);
     dispatch(addGPTMovies({movies: gptMovies,result: tmdbMovies}))
 
   };
   return (
-    <div className="pt-[10%]">
+    <div className="pt-[45%] md:pt-[10%]">
       <form
         action=""
-        className="w-1/2 bg-black m-auto grid grid-cols-12"
+        className="w-11/12 md:w-1/2 bg-black m-auto grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
