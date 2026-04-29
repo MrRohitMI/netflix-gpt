@@ -142,7 +142,7 @@ VITE_OPENAI_KEY=your_openai_key
 
 ## 👨‍💻 Author
 
-Your Name
+Rohit Mourya
 
 * LinkedIn: https://www.linkedin.com/in/rohit-mourya/
 * GitHub: https://github.com/MrRohitMI

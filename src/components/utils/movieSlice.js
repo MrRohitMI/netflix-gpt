@@ -7,7 +7,7 @@ const movieSlice = createSlice({
     popularMovies: [],
     upcomingMovies: [],
     topRatedMovies: [],
-    trailerVideo: null,
+    trailerVideo: {},
     loading: false,
     error: null,
   },
@@ -25,7 +25,8 @@ const movieSlice = createSlice({
       state.topRatedMovies = action.payload;
     },
     addTrailerVideo: (state, action) => {
-      state.trailerVideo = action.payload;
+      const { movieId, key } = action.payload;
+      state.trailerVideo[movieId] = key;
     },
     setLoading: (state, action) => {
       state.loading = action.payload;

@@ -70,7 +70,6 @@ const Login = () => {
         password.current.value,
       )
         .then((userCredential) => {
-          console.log(loading);
           const user = userCredential.user;
         })
         .catch((error) => {
@@ -80,7 +79,6 @@ const Login = () => {
         })
         .finally(() => {
           setLoading(false);
-          console.log(loading);
         });
     }
   };
