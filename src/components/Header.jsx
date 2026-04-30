@@ -8,6 +8,7 @@ import { addUser, removeUser } from "./utils/userSlice";
 import { toggleGptBtn } from "./utils/gptSlice";
 import { SUPPORTED_LANG } from "./utils/constants";
 import { changeLanguage } from "./utils/configSlice";
+import userLogo from "../assets/user_profile_logo.png"
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ const Header = () => {
               </button>
             </div>
             <img
-              src={user.photoURL}
+              src={user.photoUR || userLogo}
               alt="user logo"
               className="h-12 w-12 hidden md:block"
             />
